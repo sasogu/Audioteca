@@ -5,9 +5,9 @@ title: "Episodios"
 
 <div class="search-container">
   <div class="search-box">
-      <input type="search" 
-        id="search-input" 
-        placeholder="🔍 Buscar episodios por título o contenido..." 
+          <input type="search" 
+            id="search-input" 
+            placeholder="🔍 Buscar episodios (min. 2 letras)" 
         autocomplete="off"
         aria-label="Buscar episodios"
         tabindex="0"
@@ -116,6 +116,10 @@ title: "Episodios"
     .then(response => response.json())
     .then(data => {
       searchData = data;
+      console.log('Buscador: índice cargado →', Array.isArray(data) ? data.length : 0, 'episodios');
+    })
+    .catch(err => {
+      console.error('Buscador: error cargando índice', err);
     });
 
   // Función de búsqueda

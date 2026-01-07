@@ -7,20 +7,39 @@ Sitio estático para GitHub Pages (Jekyll) que:
 
 ## Uso rápido
 
-1) Sube tus MP3 a `assets/mp3/`
+1) Sube tus MP3 a `assets/mp3/` (estructura por año). Ej.: `assets/mp3/2026/2026-01-07-mi-episodio.mp3`.
 
 2) Crea un episodio en `_posts/` (nombre: `YYYY-MM-DD-mi-episodio.md`).
 
 	Campos importantes en el front matter:
 	- `audio_url`: ruta al MP3 (ej: `/assets/mp3/episodio-001.mp3`)
 	- `audio_length`: tamaño en bytes (recomendado en el enclosure)
-	- `duration`: `HH:MM:SS`
+	- `duration`: `H:MM:SS`
 
 	Para obtener el tamaño en bytes en Linux:
 
 	```bash
 	stat -c%s assets/mp3/episodio-001.mp3
 	```
+
+	O usa el script auxiliar para generar el snippet listo para pegar (recomendado):
+
+	```bash
+	python3 tools/generate_episode_meta.py assets/mp3/2026/2026-01-07-mi-episodio.mp3
+	```
+
+	Salida de ejemplo:
+
+	```yaml
+	audio_url: "/assets/mp3/2026/2026-01-07-mi-episodio.mp3"
+	audio_type: "audio/mpeg"
+	audio_length: 12345678
+	duration: "0:42:31"
+	```
+
+	Notas:
+	- El script calcula `audio_length` siempre y `duration` si encuentra `ffprobe` (ffmpeg) o la librería `mutagen`.
+	- Si no tienes `ffprobe`, instálalo (Debian/Ubuntu: `sudo apt-get install ffmpeg`). Alternativa: `pip install mutagen` en tu entorno Python.
 
 3) Configura `url` y `baseurl` en `_config.yml`.
 
@@ -47,7 +66,8 @@ Luego abre `http://localhost:4000`.
 
 ## Feed
 
-- Feed del podcast: `/feed.xml`
+- Feed original del sitio (origen para FeedBurner): `/feed.xml`
+- Feed público enlazado en la web: `https://feeds.feedburner.com/daizansoriano/podcast`
 
 ## Importar episodios desde un feed existente
 

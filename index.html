@@ -35,7 +35,7 @@ title: "Episodios"
     {% if post.duration %} · {{ post.duration }}{% endif %}
   </div>
   {% if post.description %}
-    <div class="episode-description">{{ post.description }}</div>
+    <div class="episode-description">{{ post.description | markdownify }}</div>
   {% endif %}
 </article>
     {% endif %}
@@ -177,6 +177,8 @@ title: "Episodios"
     `).join('');
 
     searchResults.innerHTML = html;
+    // Linkificar URLs en las descripciones de resultados
+    searchResults.querySelectorAll('.episode-description').forEach(el => linkifyElement(el));
   }
 
   // Limpiar búsqueda completamente (botón ✕ o Escape)
@@ -204,6 +206,45 @@ title: "Episodios"
   }
 
   // Event listeners
+  // Utilidad: convertir URLs en enlaces clicables dentro de nodos de texto
+  const urlRegex = /\bhttps?:\/\/[\w\-._~:\/?#\[\]@!$&'()*+,;=%]+/g;
+  function linkifyElement(root) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    const toProcess = [];
+    let node;
+    while ((node = walker.nextNode())) {
+      if (urlRegex.test(node.nodeValue)) {
+        toProcess.push(node);
+      }
+    }
+    toProcess.forEach(textNode => {
+      const text = textNode.nodeValue;
+      const frag = document.createDocumentFragment();
+      let lastIndex = 0;
+      text.replace(urlRegex, (match, offset) => {
+        if (offset > lastIndex) {
+          frag.appendChild(document.createTextNode(text.slice(lastIndex, offset)));
+        }
+        const a = document.createElement('a');
+        a.href = match;
+        a.textContent = match;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        frag.appendChild(a);
+        lastIndex = offset + match.length;
+        return match;
+      });
+      if (lastIndex < text.length) {
+        frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+      }
+      textNode.parentNode.replaceChild(frag, textNode);
+    });
+  }
+
+  // Linkificar descripciones del listado inicial
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.episode-description').forEach(el => linkifyElement(el));
+  });
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       console.log('Buscador: valor actual ->', e.target.value);

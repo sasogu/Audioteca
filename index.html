@@ -29,7 +29,7 @@ title: "Episodios"
 <article class="episode">
   <h2 class="episode-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
   <div class="meta">
-    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d de %B de %Y" }}</time>
+    <time datetime="{{ post.date | date_to_xmlschema }}">{% include date_es.html date=post.date %}</time>
     {% if post.episode %} · Episodio {{ post.episode }}{% endif %}
     {% if post.season %} · Temporada {{ post.season }}{% endif %}
     {% if post.duration %} · {{ post.duration }}{% endif %}

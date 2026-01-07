@@ -327,8 +327,12 @@ def main() -> int:
     for ep in episodes:
         pub = ep.pub_date or dt.datetime.now(dt.timezone.utc)
         date_prefix = pub.strftime("%Y-%m-%d")
+        year = pub.strftime("%Y")
         slug = _slugify(ep.title)
-        post_path = posts_dir / f"{date_prefix}-{slug}.md"
+        # Crear subdirectorio por año
+        year_posts_dir = posts_dir / year
+        year_mp3_dir = mp3_dir / year
+        post_path = year_posts_dir / f"{date_prefix}-{slug}.md"
 
         # Si el post ya existe y apunta a un MP3 local presente, no reintentamos descargar.
         existing_local_url = None
@@ -349,8 +353,9 @@ def main() -> int:
             else:
                 base = _basename_from_url(ep.enclosure_url)
                 mp3_name = f"{date_prefix}-{base}"
-                mp3_path = mp3_dir / mp3_name
+                mp3_path = year_mp3_dir / mp3_name
                 if not args.dry_run:
+                    year_mp3_dir.mkdir(parents=True, exist_ok=True)
                     try:
                         _download(ep.enclosure_url, mp3_path, overwrite=args.overwrite)
                     except Exception as e:
@@ -380,12 +385,13 @@ def main() -> int:
             base = _basename_from_url(ep.enclosure_url)
             # Evita colisiones: añade fecha delante
             mp3_name = f"{date_prefix}-{base}"
-            mp3_path = mp3_dir / mp3_name
+            mp3_path = year_mp3_dir / mp3_name
             if not args.dry_run:
+                year_mp3_dir.mkdir(parents=True, exist_ok=True)
                 try:
                     size = _download(ep.enclosure_url, mp3_path, overwrite=args.overwrite)
                     audio_length = size
-                    local_audio_url = f"/assets/mp3/{mp3_name}"
+                    local_audio_url = f"/assets/mp3/{year}/{mp3_name}"
                 except Exception as e:
                     key = (date_prefix, ep.title, ep.enclosure_url)
                     if key not in seen_failure_keys:
@@ -405,7 +411,7 @@ def main() -> int:
                     audio_length = ep.enclosure_length
             else:
                 audio_length = ep.enclosure_length
-                local_audio_url = f"/assets/mp3/{mp3_name}"
+                local_audio_url = f"/assets/mp3/{year}/{mp3_name}"
 
         post_content = _format_post(
             ep,
@@ -419,7 +425,7 @@ def main() -> int:
             print(f"  audio: {local_audio_url or ep.enclosure_url}")
 
         if not args.dry_run:
-            posts_dir.mkdir(parents=True, exist_ok=True)
+            year_posts_dir.mkdir(parents=True, exist_ok=True)
             post_path.write_text(post_content, encoding="utf-8")
 
     # Reporte final de fallos (siempre que no sea dry-run)

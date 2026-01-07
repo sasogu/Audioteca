@@ -7,10 +7,10 @@ audio_url: "/assets/mp3/2021/2021-07-10-ZazenEsUnActoDeEntrega.mp3"
 audio_type: "audio/mpeg"
 audio_length: 12333641
 explicit: false
-source_url: "https://www.daizansoriano.com/zazen-es-un-acto-de-entrega/"
+source_url: "https://sasogu.github.io/Audioteca/episodios/2021/07/10/zazen-es-un-acto-de-entrega/"
 ---
 
 ## Notas
 
-<p>Kusen extraído del libro <a href="https://amzn.to/3s9gFme">Vida Simple, Corazón Profundo</a> del maestro zen <a href="http://dokushovillalba.com">Dokushô Villalba</a></p> <figure class="wp-block-audio"></figure> <figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="778" src="https://www.daizansoriano.com/wp-content/uploads/2021/07/sheet-613530_1920-1024x778.jpg" alt="" class="wp-image-5233" srcset="https://www.daizansoriano.com/wp-content/uploads/2021/07/sheet-613530_1920-1024x778.jpg 1024w, https://www.daizansoriano.com/wp-content/uploads/2021/07/sheet-613530_1920-300x228.jpg 300w, https://www.daizansoriano.com/wp-content/uploads/2021/07/sheet-613530_1920-768x584.jpg 768w, https://www.daizansoriano.com/wp-content/uploads/2021/07/sheet-613530_1920-1536x1167.jpg 1536w, https://www.daizansoriano.com/wp-content/uploads/2021/07/sheet-613530_1920.jpg 1920w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+<p>Kusen extraído del libro <a href="https://amzn.to/3s9gFme">Vida Simple, Corazón Profundo</a> del maestro zen <a href="http://dokushovillalba.com">Dokushô Villalba</a></p> <figure class="wp-block-audio"></figure> <figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="778" src="/assets/images/2021/zazen-es-un-acto-de-entrega-img1.jpg" alt="" class="wp-image-5233" srcset="/assets/images/2021/zazen-es-un-acto-de-entrega-img1.jpg 1024w, https://www.daizansoriano.com/wp-content/uploads/2021/07/sheet-613530_1920-300x228.jpg 300w, https://www.daizansoriano.com/wp-content/uploads/2021/07/sheet-613530_1920-768x584.jpg 768w, https://www.daizansoriano.com/wp-content/uploads/2021/07/sheet-613530_1920-1536x1167.jpg 1536w, https://www.daizansoriano.com/wp-content/uploads/2021/07/sheet-613530_1920.jpg 1920w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
 

@@ -8,7 +8,8 @@ audio_type: "audio/mpeg"
 audio_length: 22807727
 duration: "43:02"
 explicit: false
-source_url: "https://www.daizansoriano.com/introduccion-a-los-cinco-obstaculos/"
+source_url: "https://sasogu.github.io/Audioteca/episodios/2025/03/01/introduccion-a-los-cinco-obstaculos/"
+image: "/assets/images/2025/2025-03-01-introduccion-a-los-cinco-obstaculos.jpg"
 ---
 
 ## Notas

@@ -8,7 +8,8 @@ audio_type: "audio/mpeg"
 audio_length: 5614799
 duration: "6:09"
 explicit: false
-source_url: "https://www.daizansoriano.com/07-perfecta-como-el-espacio-inmenso/"
+source_url: "https://sasogu.github.io/Audioteca/episodios/2024/10/12/07-plena-como-el-gran-vacio/"
+image: "/assets/images/2024/2024-10-12-07-plena-como-el-gran-vacio.png"
 ---
 
 ## Notas

@@ -8,7 +8,7 @@ audio_type: "audio/mpeg"
 audio_length: 11379857
 duration: "10:04"
 explicit: false
-source_url: "https://www.daizansoriano.com/8-a-causa-del-apego-y-el-rechazo/"
+source_url: "https://sasogu.github.io/Audioteca/episodios/2024/11/24/08-es-precisamente-por-aferrarnos-y-rechazar/"
 ---
 
 ## Notas

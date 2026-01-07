@@ -36,6 +36,7 @@ class Episode:
     enclosure_type: str | None
     itunes_duration: str | None
     itunes_explicit: str | None
+    itunes_image: str | None
 
 
 def _slugify(value: str) -> str:
@@ -93,6 +94,15 @@ def _safe_filename(name: str) -> str:
     return name or "audio.mp3"
 
 
+def _extract_image_urls(html: str) -> list[str]:
+    """Extrae todas las URLs de imágenes de tags <img> en el HTML"""
+    if not html:
+        return []
+    img_pattern = r'<img[^>]+src=["\']([^"\']+)["\'][^>]*>'
+    matches = re.findall(img_pattern, html, re.IGNORECASE)
+    return [url.strip() for url in matches if url.strip()]
+
+
 def _basename_from_url(url: str) -> str:
     parsed = urllib.parse.urlparse(url)
     base = os.path.basename(parsed.path)
@@ -101,6 +111,61 @@ def _basename_from_url(url: str) -> str:
         # No siempre será mp3, pero en este caso lo esperamos.
         base = base + ".mp3"
     return base
+
+
+def _download_and_replace_images(
+    html: str,
+    images_dir: Path,
+    slug: str,
+    year: str,
+    *,
+    download: bool,
+    overwrite: bool,
+    dry_run: bool,
+) -> str:
+    """Descarga imágenes del HTML y reemplaza URLs con rutas locales"""
+    if not html:
+        return html
+    
+    image_urls = _extract_image_urls(html)
+    if not image_urls:
+        return html
+    
+    year_images_dir = images_dir / year
+    modified_html = html
+    
+    for idx, img_url in enumerate(image_urls, 1):
+        # Saltar imágenes ya locales
+        if img_url.startswith("/assets/") or img_url.startswith("assets/"):
+            continue
+        
+        # Determinar extensión
+        parsed_url = urllib.parse.urlparse(img_url)
+        ext = os.path.splitext(parsed_url.path)[1] or ".jpg"
+        if ext.lower() not in [".jpg", ".jpeg", ".png", ".gif", ".webp"]:
+            ext = ".jpg"
+        
+        # Nombre local
+        img_name = f"{slug}-img{idx}{ext}"
+        img_path = year_images_dir / img_name
+        local_img_url = f"/assets/images/{year}/{img_name}"
+        
+        if download:
+            if not dry_run:
+                year_images_dir.mkdir(parents=True, exist_ok=True)
+                try:
+                    _download(img_url, img_path, overwrite=overwrite)
+                    # Reemplazar en el HTML
+                    modified_html = modified_html.replace(img_url, local_img_url)
+                    print(f"    + imagen: {local_img_url}")
+                except Exception as e:
+                    print(f"    WARNING: no se pudo descargar imagen: {img_url}")
+                    print(f"    WARNING: {type(e).__name__}: {e}")
+            else:
+                # En dry-run, simular el reemplazo
+                modified_html = modified_html.replace(img_url, local_img_url)
+    
+    return modified_html
 
 
 def _download(url: str, dest: Path, *, overwrite: bool) -> int:
@@ -203,6 +268,10 @@ def parse_feed_xml(xml_bytes: bytes) -> list[Episode]:
 
         itunes_duration = (item.findtext("itunes:duration", default="", namespaces=NS) or "").strip() or None
         itunes_explicit = (item.findtext("itunes:explicit", default="", namespaces=NS) or "").strip() or None
+        
+        # Imagen del episodio
+        itunes_image_el = item.find("itunes:image", NS)
+        itunes_image = itunes_image_el.get("href") if itunes_image_el is not None else None
 
         if not title:
             # Evita entradas vacías.
@@ -221,6 +290,7 @@ def parse_feed_xml(xml_bytes: bytes) -> list[Episode]:
                 enclosure_type=enclosure_type,
                 itunes_duration=itunes_duration,
                 itunes_explicit=itunes_explicit,
+                itunes_image=itunes_image,
             )
         )
 
@@ -244,6 +314,8 @@ def _format_post(
     local_audio_url: str | None,
     audio_length: int | None,
     audio_type: str | None,
+    image_url: str | None = None,    content_html: str | None = None,
+    description_html: str | None = None,
 ) -> str:
     pub = ep.pub_date
     if pub is None:
@@ -277,16 +349,28 @@ def _format_post(
 
     if ep.link:
         lines.append(f'source_url: "{ep.link}"')
+    
+    if image_url:
+        lines.append(f'image: "{image_url}"')
 
     lines.append("---")
     lines.append("")
 
-    # Contenido
-    if ep.description_html:
+    # Contenido - usar HTML procesado si se proporcionó
+    body_html = content_html if content_html is not None else ep.content_html
+    desc_html = description_html if description_html is not None else ep.description_html
+    
+    if desc_html:
         lines.append("## Notas")
         lines.append("")
         # Mantener HTML: Jekyll lo renderiza bien.
-        lines.append(_remove_embedded_audio(ep.description_html.strip()))
+        lines.append(_remove_embedded_audio(desc_html.strip()))
+        lines.append("")
+    
+    if body_html:
+        lines.append("## Contenido")
+        lines.append("")
+        lines.append(_remove_embedded_audio(body_html.strip()))
         lines.append("")
 
     return "\n".join(lines) + "\n"
@@ -297,6 +381,7 @@ def main() -> int:
     parser.add_argument("--feed-url", default="https://www.daizansoriano.com/feed/podcast/", help="URL del feed RSS")
     parser.add_argument("--limit", type=int, default=0, help="Límite de episodios (0 = todos)")
     parser.add_argument("--download", action="store_true", help="Descargar MP3 a assets/mp3/")
+    parser.add_argument("--download-images", action="store_true", help="Descargar imágenes a assets/images/")
     parser.add_argument("--overwrite", action="store_true", help="Sobrescribir mp3 existentes")
     parser.add_argument("--overwrite-posts", action="store_true", help="Sobrescribir posts existentes")
     parser.add_argument(
@@ -310,6 +395,7 @@ def main() -> int:
     repo_root = Path(__file__).resolve().parents[1]
     posts_dir = repo_root / "_posts"
     mp3_dir = repo_root / "assets" / "mp3"
+    images_dir = repo_root / "assets" / "images"
 
     req = urllib.request.Request(args.feed_url, headers={"User-Agent": "AudiotecaImporter/1.0"})
     with urllib.request.urlopen(req) as resp:
@@ -380,6 +466,27 @@ def main() -> int:
         local_audio_url = None
         audio_length = None
         audio_type = ep.enclosure_type
+        local_image_url = None
+
+        # Descargar imagen si está disponible
+        if args.download_images and ep.itunes_image:
+            year_images_dir = images_dir / year
+            parsed_url = urllib.parse.urlparse(ep.itunes_image)
+            img_ext = os.path.splitext(parsed_url.path)[1] or ".jpg"
+            img_name = f"{date_prefix}-{slug}{img_ext}"
+            img_path = year_images_dir / img_name
+            if not args.dry_run:
+                year_images_dir.mkdir(parents=True, exist_ok=True)
+                try:
+                    _download(ep.itunes_image, img_path, overwrite=args.overwrite)
+                    local_image_url = f"/assets/images/{year}/{img_name}"
+                    print(f"  imagen: {local_image_url}")
+                except Exception as e:
+                    print(f"  WARNING: no se pudo descargar imagen: {ep.itunes_image}")
+                    print(f"  WARNING: {type(e).__name__}: {e}")
+                    local_image_url = None
+            else:
+                local_image_url = f"/assets/images/{year}/{img_name}"
 
         if args.download and ep.enclosure_url:
             base = _basename_from_url(ep.enclosure_url)
@@ -413,11 +520,41 @@ def main() -> int:
                 audio_length = ep.enclosure_length
                 local_audio_url = f"/assets/mp3/{year}/{mp3_name}"
 
+        # Procesar imágenes del contenido HTML (description y content)
+        processed_description = None
+        processed_content = None
+        
+        if args.download_images:
+            if ep.description_html:
+                processed_description = _download_and_replace_images(
+                    ep.description_html,
+                    images_dir,
+                    slug,
+                    year,
+                    download=True,
+                    overwrite=args.overwrite,
+                    dry_run=args.dry_run,
+                )
+            
+            if ep.content_html:
+                processed_content = _download_and_replace_images(
+                    ep.content_html,
+                    images_dir,
+                    slug,
+                    year,
+                    download=True,
+                    overwrite=args.overwrite,
+                    dry_run=args.dry_run,
+                )
+
         post_content = _format_post(
             ep,
             local_audio_url=local_audio_url,
             audio_length=audio_length,
             audio_type=audio_type,
+            image_url=local_image_url,
+            content_html=processed_content,
+            description_html=processed_description,
         )
 
         print(f"- {ep.title} -> {post_path.relative_to(repo_root)}")

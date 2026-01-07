@@ -8,7 +8,8 @@ audio_type: "audio/mpeg"
 audio_length: 5071622
 duration: "4:47"
 explicit: false
-source_url: "https://www.daizansoriano.com/6-al-no-comprender-el-sentido-profundo/"
+source_url: "https://sasogu.github.io/Audioteca/episodios/2024/09/27/06-si-no-comprendes-el-principio-profundo/"
+image: "/assets/images/2024/2024-09-27-06-si-no-comprendes-el-principio-profundo.png"
 ---
 
 ## Notas

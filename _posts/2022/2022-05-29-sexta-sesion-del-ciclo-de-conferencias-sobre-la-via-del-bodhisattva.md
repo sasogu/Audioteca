@@ -7,7 +7,7 @@ audio_url: "/assets/mp3/2022/2022-05-29-Teisho6.mp3"
 audio_type: "audio/mpeg"
 audio_length: 30616487
 explicit: false
-source_url: "https://www.daizansoriano.com/sexta-sesion-del-ciclo-de-conferencias-sobre-la-via-del-bodhisattva/"
+source_url: "https://sasogu.github.io/Audioteca/episodios/2022/05/29/sexta-sesion-del-ciclo-de-conferencias-sobre-la-via-del-bodhisattva/"
 ---
 
 ## Notas

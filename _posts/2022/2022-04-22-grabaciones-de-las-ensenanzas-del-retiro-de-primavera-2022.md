@@ -7,7 +7,7 @@ audio_url: "/assets/mp3/2022/2022-04-22-Teisho1.mp3"
 audio_type: "audio/mpeg"
 audio_length: 26229058
 explicit: false
-source_url: "https://www.daizansoriano.com/grabaciones-de-las-ensenanzas-del-retiro-de-primavera-2022/"
+source_url: "https://sasogu.github.io/Audioteca/episodios/2022/04/22/grabaciones-de-las-ensenanzas-del-retiro-de-primavera-2022/"
 ---
 
 ## Notas

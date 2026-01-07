@@ -5,9 +5,9 @@ categories: ["podcast"]
 description: "La Vía del Bodhisattva Transformando el dolor en compasión Ciclo de conferencias con el maestro zen Daizan Soriano en el&nbsp;Centro Zen Kômyô&nbsp; Asociación Zen de Alicante Del 4 de febrero al 1 de julio de 2022 Viernes 4 de febrero. Int…"
 audio_url: "/assets/mp3/2022/La_Via_del_Bodhisattva.mp3"
 audio_type: "audio/mpeg"
-audio_length: 50189389
+audio_length: 138
 explicit: false
-source_url: "https://www.daizansoriano.com/ciclo-sobre-la-via-del-bodhisattva/"
+source_url: "https://sasogu.github.io/Audioteca/episodios/2022/01/04/ciclo-de-conferencias-sobre-la-via-del-bodhisattva/"
 ---
 
 ## Notas

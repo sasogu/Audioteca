@@ -21,6 +21,8 @@ layout: null
     <itunes:summary>{{ site.description | xml_escape }}</itunes:summary>
     <itunes:explicit>{% if site.podcast.explicit == true %}true{% else %}false{% endif %}</itunes:explicit>
     <podcast:locked>no</podcast:locked>
+    <copyright>© {{ "now" | date: "%Y" }} {{ site.podcast.owner_name | default: site.title | xml_escape }}. Licencia Creative Commons Atribución-SinDerivadas 4.0 Internacional (CC BY-ND 4.0)</copyright>
+    <atom:link rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/" />
     {% if site.podcast.owner_name or site.podcast.owner_email %}
       <itunes:owner>
         {% if site.podcast.owner_name %}<itunes:name>{{ site.podcast.owner_name | xml_escape }}</itunes:name>{% endif %}

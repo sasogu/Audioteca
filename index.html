@@ -1,0 +1,56 @@
+---
+layout: default
+title: "Episodios"
+---
+
+{% if paginator.posts.size == 0 %}
+<p>No hay episodios todavía. Crea tu primer archivo en <code>_posts/</code>.</p>
+{% else %}
+  {% for post in paginator.posts %}
+    {% if post.categories contains 'podcast' %}
+<article class="episode">
+  <h2 class="episode-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+  <div class="meta">
+    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d de %B de %Y" }}</time>
+    {% if post.episode %} · Episodio {{ post.episode }}{% endif %}
+    {% if post.season %} · Temporada {{ post.season }}{% endif %}
+    {% if post.duration %} · {{ post.duration }}{% endif %}
+  </div>
+  {% if post.description %}
+    <div class="episode-description">{{ post.description }}</div>
+  {% endif %}
+</article>
+    {% endif %}
+  {% endfor %}
+
+  {% if paginator.total_pages > 1 %}
+<nav class="pagination" aria-label="Paginación">
+  <div class="pagination-info">
+    Página {{ paginator.page }} de {{ paginator.total_pages }}
+  </div>
+  <div class="pagination-links">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination-btn">← Anterior</a>
+    {% else %}
+      <span class="pagination-btn disabled">← Anterior</span>
+    {% endif %}
+
+    {% if paginator.page_trail %}
+      {% for trail in paginator.page_trail %}
+        {% if trail.num == paginator.page %}
+          <span class="pagination-number current">{{ trail.num }}</span>
+        {% else %}
+          <a href="{{ trail.path | relative_url }}" class="pagination-number">{{ trail.num }}</a>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}" class="pagination-btn">Siguiente →</a>
+    {% else %}
+      <span class="pagination-btn disabled">Siguiente →</span>
+    {% endif %}
+  </div>
+</nav>
+  {% endif %}
+{% endif %}

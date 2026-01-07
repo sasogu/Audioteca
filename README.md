@@ -48,3 +48,19 @@ Luego abre `http://localhost:4000`.
 ## Feed
 
 - Feed del podcast: `/feed.xml`
+
+## Importar episodios desde un feed existente
+
+Hay un importador para traer episodios desde un RSS (como el de daizansoriano.com) y convertirlos a `_posts/*.md`.
+
+Solo crear los Markdown (sin descargar MP3):
+
+```bash
+/home/sasogu/web/Audioteca/.venv/bin/python tools/import_podcast_feed.py --dry-run
+```
+
+Crear Markdown y descargar los MP3 a `assets/mp3/` (ejemplo con 5 episodios):
+
+```bash
+/home/sasogu/web/Audioteca/.venv/bin/python tools/import_podcast_feed.py --download --limit 5
+```

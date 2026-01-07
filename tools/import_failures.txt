@@ -1,0 +1,10 @@
+Reporte de fallos de descarga (UTC): 2026-01-07 15:50:31 +0000
+Total fallos: 6
+
+fecha	titulo	url	error
+2024-03-04	05. El conflicto entre lo que aceptas y lo que rechazas	https://media.blubrry.com/daizansoriano/www.daizansoriano.com/wp-content/uploads/2024/03/05-xxm.mp3	HTTPError: HTTP Error 404: Not Found
+2024-03-04	04. Si deseas ver la verdad ante ti	https://media.blubrry.com/daizansoriano/www.daizansoriano.com/wp-content/uploads/2024/03/04-xxm.mp3	HTTPError: HTTP Error 404: Not Found
+2024-02-07	03. Si aparece la más mínima diferencia	https://media.blubrry.com/daizansoriano/www.daizansoriano.com/wp-content/uploads/2024/03/3.-Pero-si-se-crea-la-menor-diferencia2.mp3	HTTPError: HTTP Error 404: Not Found
+2022-01-04	Ciclo de conferencias sobre la Vía del Bodhisattva	https://media.blubrry.com/daizansoriano/daizansoriano.com/wp-content/uploads/2021/10/La_Via_del_Bodhisattva.mp3	HTTPError: HTTP Error 404: Not Found
+2021-12-10	Kômyô – Estudia siempre con aplicación la Vía del Buda	https://media.blubrry.com/daizansoriano/www.daizansoriano.com/wp-content/uploads/2021/12/Komyo-Estudia-siempre-con-aplicacion-la-Via-del-Buda.mp3	HTTPError: HTTP Error 404: Not Found
+2021-09-17	Entrevista en Presentástico	https://media.blubrry.com/daizansoriano/presentastico.com/wp-content/uploads/2021/09/ep117-presentastico.mp3	HTTPError: HTTP Error 404: Not Found

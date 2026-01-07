@@ -283,7 +283,7 @@ def _format_post(
 
     # Contenido
     if ep.description_html:
-        lines.append("## Notas (importadas)")
+        lines.append("## Notas")
         lines.append("")
         # Mantener HTML: Jekyll lo renderiza bien.
         lines.append(_remove_embedded_audio(ep.description_html.strip()))

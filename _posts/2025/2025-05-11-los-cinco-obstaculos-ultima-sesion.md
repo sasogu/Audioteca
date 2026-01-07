@@ -10,7 +10,7 @@ duration: "53:34:00"
 explicit: false
 source_url: "https://www.daizansoriano.com/los-cinco-obstaculos-ultima-sesion/"---
 
-## Notas (importadas)
+## Notas
 
 <p>Sesión de enseñanza realizada en el dojo zen de Elche en el contexto del Curso de Introducción a la meditación Zen II y el primer Retiro Urbano de la sangha ilicitana.</p> <figure class="wp-block-audio"></figure></p>
 

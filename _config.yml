@@ -31,6 +31,7 @@ podcast:
   image: "/assets/daizan.jpg"
   # Categoría principal (texto libre, ej: "Technology" o "Society & Culture")
   category: "Religion & Spirituality"
+  subcategory: "Religion"
   explicit: false
 
 timezone: "UTC"

@@ -31,7 +31,13 @@ layout: null
       <itunes:image href="{% if site.podcast.image contains '://' %}{{ site.podcast.image | xml_escape }}{% else %}{{ base | xml_escape }}{{ site.podcast.image | xml_escape }}{% endif %}" />
     {% endif %}
     {% if site.podcast.category %}
-      <itunes:category text="{{ site.podcast.category | xml_escape }}" />
+      {% if site.podcast.subcategory %}
+        <itunes:category text="{{ site.podcast.category | xml_escape }}">
+          <itunes:category text="{{ site.podcast.subcategory | xml_escape }}" />
+        </itunes:category>
+      {% else %}
+        <itunes:category text="{{ site.podcast.category | xml_escape }}" />
+      {% endif %}
     {% endif %}
 
     {% assign episodes = site.posts | where_exp: "p", "p.categories contains 'podcast'" %}
@@ -46,8 +52,8 @@ layout: null
 
         <item>
           <title>{{ post.title | xml_escape }}</title>
-          <link>{{ base | xml_escape }}{{ post.url | relative_url | xml_escape }}</link>
-          <guid isPermaLink="false">{{ base | xml_escape }}{{ post.url | relative_url | xml_escape }}</guid>
+          <link>{{ base | xml_escape }}{{ post.url | xml_escape }}</link>
+          <guid isPermaLink="false">{{ base | xml_escape }}{{ post.url | xml_escape }}</guid>
           <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
           <description>{{ post.description | default: post.excerpt | strip_html | strip_newlines | xml_escape }}</description>
 

@@ -7,7 +7,8 @@ podcast:
   author: "Daizan Soriano"
   owner_name: "Daizan Soriano"
   owner_email: "daizansoriano@caminomedio.org"
-  category: "Society & Culture"
+  category: "Religion & Spirituality"
+  subcategory: "Religion"
   explicit: false
   image: "/assets/daizan.jpg" # recomendado: 1400x1400 o 3000x3000 (jpg/png)
 

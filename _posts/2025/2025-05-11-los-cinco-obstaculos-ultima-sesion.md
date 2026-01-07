@@ -13,5 +13,5 @@ source_url: "https://sasogu.github.io/Audioteca/episodios/2025/05/11/los-cinco-o
 
 ## Notas
 
-<p>Sesión de enseñanza realizada en el dojo zen de Elche en el contexto del Curso de Introducción a la meditación Zen II y el primer Retiro Urbano de la sangha ilicitana.</p> <figure class="wp-block-audio"></figure></p>
+<p>Sesión de enseñanza realizada en el dojo zen de Elche en el contexto del Curso de Introducción a la meditación Zen II y el primer Retiro Urbano de la sangha ilicitana.</p> 
 

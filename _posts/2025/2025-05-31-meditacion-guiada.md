@@ -14,5 +14,5 @@ image: "/assets/images/2025/2025-05-31-meditacion-guiada.jpg"
 
 ## Notas
 
-<p>Meditación grabada en el retiro de primavera de 2025 celebrado en Alhama de Murcia del 30 de abril al 4 de mayo</p> <figure class="wp-block-audio"></figure></p>
+<p>Meditación grabada en el retiro de primavera de 2025 celebrado en Alhama de Murcia del 30 de abril al 4 de mayo</p>
 

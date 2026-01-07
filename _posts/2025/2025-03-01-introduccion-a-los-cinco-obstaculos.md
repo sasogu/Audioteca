@@ -14,5 +14,5 @@ image: "/assets/images/2025/2025-03-01-introduccion-a-los-cinco-obstaculos.jpg"
 
 ## Notas
 
-<p>Sesión de enseñanza realizada en el dojo zen de Elche en el contexto del <a href="https://www.caminomedio.org/curso/introduccion-a-la-meditacion-zen/">Curso de Introducción a la Meditación Zen II </a>el 28 de febrero de 2025.</p> <figure class="wp-block-audio"></figure></p>
+<p>Sesión de enseñanza realizada en el dojo zen de Elche en el contexto del <a href="https://www.caminomedio.org/curso/introduccion-a-la-meditacion-zen/">Curso de Introducción a la Meditación Zen II </a>el 28 de febrero de 2025.</p> 
 

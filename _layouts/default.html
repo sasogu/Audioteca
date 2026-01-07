@@ -40,6 +40,24 @@
         padding-bottom: 1.5rem;
       }
       
+      .header-content {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      
+      .podcast-image {
+        flex-shrink: 0;
+        width: 120px;
+        height: 120px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+      
+      .header-text {
+        flex: 1;
+      }
+      
       .site-title {
         font-size: clamp(1.5rem, 4vw, 2rem);
         font-weight: 600;
@@ -340,13 +358,16 @@
   </head>
   <body>
     <header>
-      <div>
-        <h1 class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-        <p class="site-description">{{ site.description }}</p>
-        <nav>
-          <a href="{{ '/' | relative_url }}">Episodios</a> ·
-          <a href="{{ '/feed.xml' | relative_url }}">Feed RSS</a>
-        </nav>
+      <div class="header-content">
+        <img src="{{ '/assets/daizan.jpg' | relative_url }}" alt="{{ site.title }}" class="podcast-image">
+        <div class="header-text">
+          <h1 class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+          <p class="site-description">{{ site.description }}</p>
+          <nav>
+            <a href="{{ '/' | relative_url }}">Episodios</a> ·
+            <a href="{{ '/feed.xml' | relative_url }}">Feed RSS</a>
+          </nav>
+        </div>
       </div>
     </header>
 

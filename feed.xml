@@ -5,6 +5,7 @@ layout: null
 <rss version="2.0"
   xmlns:atom="http://www.w3.org/2005/Atom"
   xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:podcast="https://podcastindex.org/namespace/1.0"
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
 
   {% assign base = site.url | append: site.baseurl %}
@@ -19,6 +20,7 @@ layout: null
     <itunes:author>{{ site.podcast.author | default: site.title | xml_escape }}</itunes:author>
     <itunes:summary>{{ site.description | xml_escape }}</itunes:summary>
     <itunes:explicit>{% if site.podcast.explicit == true %}true{% else %}false{% endif %}</itunes:explicit>
+    <podcast:locked>no</podcast:locked>
     {% if site.podcast.owner_name or site.podcast.owner_email %}
       <itunes:owner>
         {% if site.podcast.owner_name %}<itunes:name>{{ site.podcast.owner_name | xml_escape }}</itunes:name>{% endif %}
@@ -49,7 +51,7 @@ layout: null
           <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
           <description>{{ post.description | default: post.excerpt | strip_html | strip_newlines | xml_escape }}</description>
 
-          <enclosure url="{{ audio_abs | xml_escape }}" length="{{ post.audio_length | default: 0 }}" type="{{ post.audio_type | default: 'audio/mpeg' }}" />
+          <enclosure url="{{ audio_abs | replace: ' ', '%20' | xml_escape }}" length="{{ post.audio_length | default: 0 }}" type="{{ post.audio_type | default: 'audio/mpeg' }}" />
 
           <itunes:summary>{{ post.description | default: post.excerpt | strip_html | strip_newlines | xml_escape }}</itunes:summary>
           {% if post.duration %}<itunes:duration>{{ post.duration }}</itunes:duration>{% endif %}

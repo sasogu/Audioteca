@@ -84,6 +84,33 @@ title: "Episodios"
   const episodesList = document.getElementById('episodes-list');
   const pagination = document.querySelector('.pagination');
 
+  // Forzar foco cuando el DOM esté listo y al cargar
+  document.addEventListener('DOMContentLoaded', () => {
+    if (searchInput) {
+      console.log('DOMContentLoaded: enfocando el buscador');
+      try { searchInput.focus(); } catch (e) {}
+    }
+  });
+  window.addEventListener('load', () => {
+    if (searchInput) {
+      console.log('load: enfocando el buscador (fallback)');
+      try { searchInput.focus(); } catch (e) {}
+    }
+  });
+
+  // Asegurar foco inicial en el input y registrar interacción
+  if (searchInput) {
+    try { searchInput.focus(); } catch (e) {}
+    searchInput.addEventListener('focus', () => {
+      console.log('Buscador: focus recibido');
+    });
+    searchInput.addEventListener('click', () => {
+      console.log('Buscador: clic sobre el campo');
+    });
+  } else {
+    console.warn('Search input not found');
+  }
+
   // Cargar datos de búsqueda
   fetch('{{ site.baseurl }}/search.json')
     .then(response => response.json())
@@ -168,20 +195,27 @@ title: "Episodios"
   }
 
   // Event listeners
-  searchInput.addEventListener('input', (e) => {
-    search(e.target.value);
-  });
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      console.log('Buscador: valor actual ->', e.target.value);
+      search(e.target.value);
+    });
+  }
 
-  clearBtn.addEventListener('click', () => {
-    clearSearch();
-    searchInput.focus();
-  });
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      clearSearch();
+      if (searchInput) searchInput.focus();
+    });
+  }
 
   // Limpiar con Escape
-  searchInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      clearSearch();
-    }
-  });
+  if (searchInput) {
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        clearSearch();
+      }
+    });
+  }
 })();
 </script>

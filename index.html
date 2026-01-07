@@ -3,6 +3,29 @@ layout: default
 title: "Episodios"
 ---
 
+<div class="search-container">
+  <div class="search-box">
+    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/>
+      <path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input type="search" 
+           id="search-input" 
+           placeholder="Buscar episodios por título o contenido..." 
+           autocomplete="off"
+           aria-label="Buscar episodios">
+    <button id="clear-search" class="clear-btn" style="display: none;" aria-label="Limpiar búsqueda">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+  <div id="search-results" class="search-results" style="display: none;"></div>
+  <div id="search-info" class="search-info" style="display: none;"></div>
+</div>
+
+<div id="episodes-list">
 {% if paginator.posts.size == 0 %}
 <p>No hay episodios todavía. Crea tu primer archivo en <code>_posts/</code>.</p>
 {% else %}
@@ -54,3 +77,116 @@ title: "Episodios"
 </nav>
   {% endif %}
 {% endif %}
+</div>
+
+<script>
+(function() {
+  let searchData = [];
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
+  const searchInfo = document.getElementById('search-info');
+  const clearBtn = document.getElementById('clear-search');
+  const episodesList = document.getElementById('episodes-list');
+  const pagination = document.querySelector('.pagination');
+
+  // Cargar datos de búsqueda
+  fetch('{{ site.baseurl }}/search.json')
+    .then(response => response.json())
+    .then(data => {
+      searchData = data;
+    });
+
+  // Función de búsqueda
+  function search(query) {
+    if (!query || query.length < 2) {
+      clearSearch();
+      return;
+    }
+
+    const lowerQuery = query.toLowerCase();
+    const results = searchData.filter(item => {
+      return item.title.toLowerCase().includes(lowerQuery) ||
+             item.content.toLowerCase().includes(lowerQuery);
+    });
+
+    displayResults(results, query);
+  }
+
+  // Mostrar resultados
+  function displayResults(results, query) {
+    episodesList.style.display = 'none';
+    if (pagination) pagination.style.display = 'none';
+    searchResults.style.display = 'block';
+    searchInfo.style.display = 'block';
+    clearBtn.style.display = 'flex';
+
+    searchInfo.innerHTML = `<strong>${results.length}</strong> resultado${results.length !== 1 ? 's' : ''} para "<strong>${escapeHtml(query)}</strong>"`;
+
+    if (results.length === 0) {
+      searchResults.innerHTML = '<div class="no-results"><p>No se encontraron episodios. Intenta con otras palabras clave.</p></div>';
+      return;
+    }
+
+    const html = results.map(item => `
+      <article class="episode">
+        <h2 class="episode-title">
+          <a href="${item.url}">${highlightMatch(item.title, query)}</a>
+        </h2>
+        <div class="meta">
+          <time>${item.date}</time>
+        </div>
+        <div class="episode-description">
+          ${highlightMatch(item.excerpt, query)}
+        </div>
+      </article>
+    `).join('');
+
+    searchResults.innerHTML = html;
+  }
+
+  // Limpiar búsqueda
+  function clearSearch() {
+    searchInput.value = '';
+    searchResults.style.display = 'none';
+    searchInfo.style.display = 'none';
+    clearBtn.style.display = 'none';
+    episodesList.style.display = 'block';
+    if (pagination) pagination.style.display = 'block';
+  }
+
+  // Resaltar coincidencias
+  function highlightMatch(text, query) {
+    const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
+    return text.replace(regex, '<mark>$1</mark>');
+  }
+
+  // Escapar HTML
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  // Escapar caracteres especiales regex
+  function escapeRegex(text) {
+    return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  // Event listeners
+  searchInput.addEventListener('input', (e) => {
+    search(e.target.value);
+  });
+
+  clearBtn.addEventListener('click', () => {
+    clearSearch();
+    searchInput.focus();
+  });
+
+  // Limpiar con Escape
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      clearSearch();
+    }
+  });
+})();
+</script>

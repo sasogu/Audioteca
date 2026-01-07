@@ -1,0 +1,47 @@
+title: "Audioteca"
+description: "Podcast"
+lang: "es"
+
+# Datos del podcast (para el feed)
+podcast:
+  author: "Audioteca"
+  owner_name: ""
+  owner_email: ""
+  category: "Society & Culture"
+  explicit: false
+  image: "/assets/podcast-cover.jpg" # recomendado: 1400x1400 o 3000x3000 (jpg/png)
+
+# IMPORTANTE:
+# En GitHub Pages, configura esto correctamente.
+# Ejemplo:
+# url: "https://TU_USUARIO.github.io"
+# baseurl: "/TU_REPO"
+url: ""
+baseurl: ""
+
+# Email opcional (para el feed)
+email: ""
+
+timezone: "UTC"
+
+markdown: kramdown
+permalink: /episodios/:year/:month/:day/:title/
+
+# Directorios
+collections: {}
+
+# Defaults para posts (episodios)
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "episode"
+      categories: ["podcast"]
+
+# Exclude
+exclude:
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - node_modules

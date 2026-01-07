@@ -1,0 +1,63 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+
+  {% assign base = site.url | append: site.baseurl %}
+
+  <channel>
+    <title>{{ site.title | xml_escape }}</title>
+    <link>{{ base | xml_escape }}/</link>
+    <description>{{ site.description | xml_escape }}</description>
+    <language>{{ site.lang | default: 'es' }}</language>
+    <atom:link href="{{ base | xml_escape }}/feed.xml" rel="self" type="application/rss+xml" />
+
+    <itunes:author>{{ site.podcast.author | default: site.title | xml_escape }}</itunes:author>
+    <itunes:summary>{{ site.description | xml_escape }}</itunes:summary>
+    <itunes:explicit>{% if site.podcast.explicit == true %}true{% else %}false{% endif %}</itunes:explicit>
+    {% if site.podcast.owner_name or site.podcast.owner_email %}
+      <itunes:owner>
+        {% if site.podcast.owner_name %}<itunes:name>{{ site.podcast.owner_name | xml_escape }}</itunes:name>{% endif %}
+        {% if site.podcast.owner_email %}<itunes:email>{{ site.podcast.owner_email | xml_escape }}</itunes:email>{% endif %}
+      </itunes:owner>
+    {% endif %}
+    {% if site.podcast.image %}
+      <itunes:image href="{% if site.podcast.image contains '://' %}{{ site.podcast.image | xml_escape }}{% else %}{{ base | xml_escape }}{{ site.podcast.image | xml_escape }}{% endif %}" />
+    {% endif %}
+    {% if site.podcast.category %}
+      <itunes:category text="{{ site.podcast.category | xml_escape }}" />
+    {% endif %}
+
+    {% assign episodes = site.posts | where_exp: "p", "p.categories contains 'podcast'" %}
+    {% for post in episodes %}
+      {% if post.audio_url %}
+        {% assign audio_abs = post.audio_url %}
+        {% if audio_abs contains '://' %}
+          {% comment %} already absolute {% endcomment %}
+        {% else %}
+          {% assign audio_abs = base | append: post.audio_url %}
+        {% endif %}
+
+        <item>
+          <title>{{ post.title | xml_escape }}</title>
+          <link>{{ base | xml_escape }}{{ post.url | relative_url | xml_escape }}</link>
+          <guid isPermaLink="false">{{ base | xml_escape }}{{ post.url | relative_url | xml_escape }}</guid>
+          <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+          <description>{{ post.description | default: post.excerpt | strip_html | strip_newlines | xml_escape }}</description>
+
+          <enclosure url="{{ audio_abs | xml_escape }}" length="{{ post.audio_length | default: 0 }}" type="{{ post.audio_type | default: 'audio/mpeg' }}" />
+
+          <itunes:summary>{{ post.description | default: post.excerpt | strip_html | strip_newlines | xml_escape }}</itunes:summary>
+          {% if post.duration %}<itunes:duration>{{ post.duration }}</itunes:duration>{% endif %}
+          {% if post.episode %}<itunes:episode>{{ post.episode }}</itunes:episode>{% endif %}
+          {% if post.season %}<itunes:season>{{ post.season }}</itunes:season>{% endif %}
+          {% if post.explicit %}<itunes:explicit>{% if post.explicit == true %}true{% else %}false{% endif %}</itunes:explicit>{% endif %}
+        </item>
+      {% endif %}
+    {% endfor %}
+  </channel>
+</rss>

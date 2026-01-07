@@ -122,10 +122,19 @@ title: "Episodios"
       console.error('Buscador: error cargando índice', err);
     });
 
+  // Ocultar resultados sin limpiar el input
+  function hideResults() {
+    searchResults.style.display = 'none';
+    searchInfo.style.display = 'none';
+    clearBtn.style.display = searchInput && searchInput.value ? 'flex' : 'none';
+    episodesList.style.display = 'block';
+    if (pagination) pagination.style.display = 'block';
+  }
+
   // Función de búsqueda
   function search(query) {
     if (!query || query.length < 2) {
-      clearSearch();
+      hideResults();
       return;
     }
 
@@ -170,14 +179,10 @@ title: "Episodios"
     searchResults.innerHTML = html;
   }
 
-  // Limpiar búsqueda
+  // Limpiar búsqueda completamente (botón ✕ o Escape)
   function clearSearch() {
-    searchInput.value = '';
-    searchResults.style.display = 'none';
-    searchInfo.style.display = 'none';
-    clearBtn.style.display = 'none';
-    episodesList.style.display = 'block';
-    if (pagination) pagination.style.display = 'block';
+    if (searchInput) searchInput.value = '';
+    hideResults();
   }
 
   // Resaltar coincidencias

@@ -12,5 +12,5 @@ source_url: "https://sasogu.github.io/Audioteca/episodios/2021/01/23/subjetivo-v
 
 ## Notas
 
-<p>Kusen extraído del libro <a href="https://amzn.to/3s9gFme">Fluyendo en el Presente Eterno</a> de Dokushô Villalba. Grabación realizada para el Dojo Zen Kômyô de Alicante y el Dojo Zen de Murcia.</p>  </p> <figure><img src="/assets/images/2021/subjetivo-versus-objetivo-img1.jpg" srcset="/assets/images/2021/subjetivo-versus-objetivo-img1-300w.jpg 300w, /assets/images/2021/subjetivo-versus-objetivo-img1-768w.jpg 768w, /assets/images/2021/subjetivo-versus-objetivo-img1.jpg 1024w" sizes="(max-width: 1024px) 100vw, 1024px" alt="" loading="lazy"></figure> 
+<p>Kusen extraído del libro <a href="https://amzn.to/3s9gFme">Fluyendo en el Presente Eterno</a> de Dokushô Villalba. Grabación realizada para el Dojo Zen Kômyô de Alicante y el Dojo Zen de Murcia.</p>  </p> <figure><img src="{{ site.baseurl }}/assets/images/2021/subjetivo-versus-objetivo-img1.jpg" srcset="{{ site.baseurl }}/assets/images/2021/subjetivo-versus-objetivo-img1-300w.jpg 300w, {{ site.baseurl }}/assets/images/2021/subjetivo-versus-objetivo-img1-768w.jpg 768w, {{ site.baseurl }}/assets/images/2021/subjetivo-versus-objetivo-img1.jpg 1024w" sizes="(max-width: 1024px) 100vw, 1024px" alt="" loading="lazy"></figure> 
 

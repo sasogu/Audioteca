@@ -29,7 +29,7 @@ license:
   url: "https://creativecommons.org/licenses/by-nd/4.0/deed.es"
 
 # Versión del sitio
-version: "1.1.8"
+version: "1.1.9"
 
 # Configuración del podcast (para feed.xml)
 # Rellena estos campos para que Apple Podcasts/Spotify lo lean mejor.

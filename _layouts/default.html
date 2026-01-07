@@ -53,6 +53,8 @@
         height: 120px;
         border-radius: 12px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        object-fit: cover;
+        background: var(--color-bg-subtle);
       }
       
       .header-text {
@@ -388,7 +390,7 @@
   <body>
     <header>
       <div class="header-content">
-        <img src="{{ '/assets/daizan.jpg' | relative_url }}" alt="{{ site.title }}" class="podcast-image">
+        <img src="{{ '/assets/daizan.jpg' | relative_url }}" alt="{{ site.title }}" class="podcast-image" loading="eager" decoding="async">
         <div class="header-text">
           <h1 class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
           <p class="site-description">{{ site.description }}</p>

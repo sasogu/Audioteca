@@ -3,9 +3,9 @@ title: "05. El conflicto entre lo que aceptas y lo que rechazas"
 date: 2024-03-04 10:55:00 +0000
 categories: ["podcast"]
 description: "Versos ((De la obra Xìn Xīn Míng Tratado sobre la Confianza en la Mente Original, del tercer ancestro chan Jianzhi Sengcan. Traducción y comentarios de Daizan Soriano)) 違 順 相 爭 是 爲 心 病 El conflicto entre lo que aceptas y lo que rechazas, en…"
-audio_url: "https://media.blubrry.com/daizansoriano/www.daizansoriano.com/wp-content/uploads/2024/03/05-xxm.mp3"
+audio_url: "/assets/mp3/5.-La-lucha-entre-el-deseo-y-el-rechazo.mp3"
 audio_type: "audio/mpeg"
-audio_length: 5242880
+audio_length: 3200987
 explicit: false
 source_url: "https://www.daizansoriano.com/5-la-lucha-entre-el-deseo-y-el-rechazo/"
 ---

@@ -148,6 +148,29 @@ def _write_failures(path: Path, failures: list[dict[str, Any]]) -> None:
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def _get_existing_local_audio_url(post_path: Path) -> str | None:
+    """Devuelve el audio_url del front matter si es local (/assets/mp3/...)"""
+    try:
+        text = post_path.read_text(encoding="utf-8")
+    except OSError:
+        return None
+
+    lines = text.splitlines()
+    if not lines or lines[0].strip() != "---":
+        return None
+
+    # Lee hasta el cierre de front matter
+    for line in lines[1:200]:
+        if line.strip() == "---":
+            break
+        if line.startswith("audio_url:"):
+            value = line.split(":", 1)[1].strip().strip('"').strip("'")
+            if value.startswith("/assets/mp3/"):
+                return value
+            return None
+    return None
+
+
 def parse_feed_xml(xml_bytes: bytes) -> list[Episode]:
     root = ET.fromstring(xml_bytes)
     channel = root.find("channel")
@@ -307,28 +330,43 @@ def main() -> int:
         slug = _slugify(ep.title)
         post_path = posts_dir / f"{date_prefix}-{slug}.md"
 
+        # Si el post ya existe y apunta a un MP3 local presente, no reintentamos descargar.
+        existing_local_url = None
+        if post_path.exists():
+            existing_local_url = _get_existing_local_audio_url(post_path)
+            if existing_local_url:
+                local_path = repo_root / existing_local_url.lstrip("/")
+                if local_path.exists() and local_path.is_file():
+                    existing_local_url = existing_local_url
+                else:
+                    existing_local_url = None
+
         # Si se pide descarga, intentamos asegurar el mp3 local aunque el post ya exista.
         if args.download and ep.enclosure_url:
-            base = _basename_from_url(ep.enclosure_url)
-            mp3_name = f"{date_prefix}-{base}"
-            mp3_path = mp3_dir / mp3_name
-            if not args.dry_run:
-                try:
-                    _download(ep.enclosure_url, mp3_path, overwrite=args.overwrite)
-                except Exception as e:
-                    key = (date_prefix, ep.title, ep.enclosure_url)
-                    if key not in seen_failure_keys:
-                        seen_failure_keys.add(key)
-                        failures.append(
-                            {
-                                "date": date_prefix,
-                                "title": ep.title,
-                                "url": ep.enclosure_url,
-                                "error": f"{type(e).__name__}: {e}",
-                            }
-                        )
-                    print(f"  WARNING: no se pudo descargar: {ep.enclosure_url}")
-                    print(f"  WARNING: {type(e).__name__}: {e}")
+            if existing_local_url and not args.overwrite:
+                # Ya está resuelto localmente.
+                pass
+            else:
+                base = _basename_from_url(ep.enclosure_url)
+                mp3_name = f"{date_prefix}-{base}"
+                mp3_path = mp3_dir / mp3_name
+                if not args.dry_run:
+                    try:
+                        _download(ep.enclosure_url, mp3_path, overwrite=args.overwrite)
+                    except Exception as e:
+                        key = (date_prefix, ep.title, ep.enclosure_url)
+                        if key not in seen_failure_keys:
+                            seen_failure_keys.add(key)
+                            failures.append(
+                                {
+                                    "date": date_prefix,
+                                    "title": ep.title,
+                                    "url": ep.enclosure_url,
+                                    "error": f"{type(e).__name__}: {e}",
+                                }
+                            )
+                        print(f"  WARNING: no se pudo descargar: {ep.enclosure_url}")
+                        print(f"  WARNING: {type(e).__name__}: {e}")
 
         if post_path.exists() and not args.overwrite_posts:
             print(f"- {ep.title} -> {post_path.relative_to(repo_root)} (ya existe, skip)")

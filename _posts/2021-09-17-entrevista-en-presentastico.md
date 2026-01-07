@@ -3,9 +3,9 @@ title: "Entrevista en Presentástico"
 date: 2021-09-17 07:15:23 +0000
 categories: ["podcast"]
 description: "El pasado lunes, Carles Caño me invitó a su Podcast en Presentástico para hablar sobre meditación y Budismo Zen, hace tiempo que sigo su podcast porque tiene una forma muy amena de comunicar y aprendo mucho mientras camino por las calles de…"
-audio_url: "https://media.blubrry.com/daizansoriano/presentastico.com/wp-content/uploads/2021/09/ep117-presentastico.mp3"
-audio_type: "audio/mpeg"
-audio_length: 61167824
+audio_url: "/assets/mp3/Presentastico Podcast.mp4"
+audio_type: "audio/mp4"
+audio_length: 68454807
 explicit: false
 source_url: "https://www.daizansoriano.com/entrevista-en-presentastico/"
 ---

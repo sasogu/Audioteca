@@ -2,7 +2,7 @@
 title: "07. Plena como el gran vacío"
 date: 2024-10-12 09:00:58 +0000
 categories: ["podcast"]
-description: "Versos ((De la obra Xìn Xīn Míng Tratado sobre la Confianza en la Mente Original, del tercer ancestro chan Jianzhi Sengcan. Traducción y comentarios de Daizan Soriano)) 圓 同 太 虚 無 欠 無 餘 Plena como el gran vacío, nada falta, nada sobra. Comen…"
+description: " 圓 同 太 虚 無 欠 無 餘 Plena como el gran vacío, nada falta, nada sobra. Comen…"
 audio_url: "/assets/mp3/2024/2024-10-12-Perfecta-como-el-espacio-inmenso.mp3"
 audio_type: "audio/mpeg"
 audio_length: 5614799

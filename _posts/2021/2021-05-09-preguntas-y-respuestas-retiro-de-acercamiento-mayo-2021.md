@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "La semana pasada tuve la oportunidad de dirigir el retiro de acercamiento en el templo Luz Serena y esta es la sesión de preguntas y respuestas que grabé durante el encuentro de la tarde."
 audio_url: "/assets/mp3/2021/2021-05-09-preguntasyrespuestasretirodeacercamientomayo2021.mp3"
 audio_type: "audio/mpeg"
-audio_length: 39829093
+audio_length: 39869952
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2021/05/09/preguntas-y-respuestas-retiro-de-acercamiento-mayo-2021/"
 ---

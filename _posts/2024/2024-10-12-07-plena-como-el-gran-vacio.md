@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: " 圓 同 太 虚 無 欠 無 餘 Plena como el gran vacío, nada falta, nada sobra. Comen…"
 audio_url: "/assets/mp3/2024/2024-10-12-Perfecta-como-el-espacio-inmenso.mp3"
 audio_type: "audio/mpeg"
-audio_length: 5614799
+audio_length: 5621443
 duration: "6:09"
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2024/10/12/07-plena-como-el-gran-vacio/"

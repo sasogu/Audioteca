@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "Charla realizada en el dojo zen Kômyô de Alicante , más información sobre el ciclo completo en este enlace ."
 audio_url: "/assets/mp3/2022/2022-03-04-Teisho2.mp3"
 audio_type: "audio/mpeg"
-audio_length: 50538994
+audio_length: 50590608
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2022/03/04/segunda-sesion-del-ciclo-de-conferencias-sobre-la-via-del-bodhisattva/"
 ---

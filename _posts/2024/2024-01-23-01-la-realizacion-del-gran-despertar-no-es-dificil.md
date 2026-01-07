@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: " 至 道 無 難 唯 嫌 揀 擇 La realización del Gran Despertar no es difícil. Tan so…"
 audio_url: "/assets/mp3/2024/2024-01-23-1.-La-Via-Suprema-no-es-dificil.mp3"
 audio_type: "audio/mpeg"
-audio_length: 5646355
+audio_length: 5653114
 duration: "4:24"
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2024/01/23/01-la-realizacion-del-gran-despertar-no-es-dificil/"

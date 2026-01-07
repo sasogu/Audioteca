@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: " 但 莫 憎 愛 洞 然 明 白 Cuando no aparece el apego ni el rechazo, todo manifies…"
 audio_url: "/assets/mp3/2024/2024-01-25-2.-Cuando-no-hay-amor-ni-odio.mp3"
 audio_type: "audio/mpeg"
-audio_length: 2936723
+audio_length: 2940790
 duration: "2:20"
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2024/01/25/02-cuando-no-aparece-el-apego-ni-el-rechazo/"

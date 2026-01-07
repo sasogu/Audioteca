@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "No puedo dejar de compartir en este espacio mi primera experiencia radiofónica en directo&#8230; después de los nervios iniciales conseguí disfrutar y todo. Gracias a Lola Torrent por hacer que todo fluyera tan bien, os dejo con el texto qu…"
 audio_url: "/assets/mp3/2014/2014-09-30-UnCafeConLolaEditado.mp3"
 audio_type: "audio/mpeg"
-audio_length: 21610200
+audio_length: 21632887
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2014/09/30/un-cafe-con-lola/"
 ---

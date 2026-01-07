@@ -2,16 +2,6 @@ title: "Audioteca Soto Zen"
 description: "La Audioteca Soto Zen recoge las enseñanzas del maestro Daizan Soriano, es un espacio de reflexión y enseñanza dedicado a la práctica del budismo Soto Zen. A través de charlas, lecturas y comentarios sobre textos fundamentales, exploramos el camino de la meditación, la ética y la sabiduría en la vida cotidiana. Este podcast ofrece una guía accesible para quienes desean profundizar en la Vía, abordando temas como la práctica de zazen, los principios del Dharma y la integración del despertar en el día a día. Un lugar para escuchar, contemplar y dejar que la palabra resuene en la experiencia directa."
 lang: "es"
 
-# Datos del podcast (para el feed)
-podcast:
-  author: "Daizan Soriano"
-  owner_name: "Daizan Soriano"
-  owner_email: "daizansoriano@caminomedio.org"
-  category: "Religion & Spirituality"
-  subcategory: "Religion"
-  explicit: false
-  image: "/assets/daizan.jpg" # recomendado: 1400x1400 o 3000x3000 (jpg/png)
-
 # IMPORTANTE:
 # En GitHub Pages:
 # url: "https://TU_USUARIO.github.io"
@@ -29,7 +19,7 @@ license:
   url: "https://creativecommons.org/licenses/by-nd/4.0/deed.es"
 
 # Versión del sitio
-version: "1.2.3"
+version: "1.2.4"
 
 # Configuración del podcast (para feed.xml)
 # Rellena estos campos para que Apple Podcasts/Spotify lo lean mejor.

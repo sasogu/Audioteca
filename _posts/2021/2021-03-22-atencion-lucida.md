@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "Kusen extraído del libro Fluyendo en el Presente Eterno del maestro zen Dokushô Villalba. Grabación realizada en la práctica online de la CBSZ el 22/03/2021"
 audio_url: "/assets/mp3/2021/2021-03-22-AtencionLucida.mp3"
 audio_type: "audio/mpeg"
-audio_length: 17936730
+audio_length: 17955742
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2021/03/22/atencion-lucida/"
 ---

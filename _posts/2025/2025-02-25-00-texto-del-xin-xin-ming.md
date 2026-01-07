@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "El presente texto es una versión que se ajusta a la esencia del Xin Xin Ming, pero con un estilo libre y fluido para hacer su lectura más clara y accesible. Conserva el sentido profundo del texto original, pero evita construcciones demasiad…"
 audio_url: "/assets/mp3/2025/2025-02-25-Texto-completo.mp3"
 audio_type: "audio/mpeg"
-audio_length: 5929041
+audio_length: 5936045
 duration: "9:56"
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2025/02/25/00-texto-del-xin-xin-ming/"

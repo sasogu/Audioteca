@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "Kusen extraído del libro Fluyendo en el Presente Eterno del maestro zen Dokushô Villalba. Grabación realizada en la práctica online de la CBSZ el 05/02/2021 [do_widget id=powerpress_subscribe-2]"
 audio_url: "/assets/mp3/2021/2021-02-06-Montanayrio.mp3"
 audio_type: "audio/mpeg"
-audio_length: 31284566
+audio_length: 31316926
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2021/02/06/montana-y-rio/"
 ---

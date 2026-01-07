@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "Kusen extraído del libro Fluyendo en el Presente Eterno del maestro zen Dokushô Villalba. Grabación realizada en el dojo zen Kômyô de Alicante el 09/04/2021"
 audio_url: "/assets/mp3/2021/2021-04-10-LaViaEsAmpliaYGenerosa.mp3"
 audio_type: "audio/mpeg"
-audio_length: 15880890
+audio_length: 15897846
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2021/04/10/la-via-es-amplia-y-generosa/"
 ---

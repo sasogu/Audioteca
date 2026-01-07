@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "Este fin de semana se ha impartido el cuarto módulo del curso de profundización de la Escuela de Atención Plena , en el que he participado como instructor y en el que entre otras actividades he dirigido esta meditación guiada que comparto e…"
 audio_url: "/assets/mp3/2021/2021-04-25-meditacionguiadacontenidosmentales.mp3"
 audio_type: "audio/mpeg"
-audio_length: 29246856
+audio_length: 29277178
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2021/04/25/meditacion-guiada-atencion-a-los-contenidos-mentales/"
 ---

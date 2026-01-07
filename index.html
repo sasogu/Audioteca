@@ -76,6 +76,7 @@ title: "Episodios"
 
 <script>
 (function() {
+  const DEBUG = false;
   let searchData = [];
   const searchInput = document.getElementById('search-input');
   const searchResults = document.getElementById('search-results');
@@ -87,13 +88,13 @@ title: "Episodios"
   // Forzar foco cuando el DOM esté listo y al cargar
   document.addEventListener('DOMContentLoaded', () => {
     if (searchInput) {
-      console.log('DOMContentLoaded: enfocando el buscador');
+      if (DEBUG) console.log('DOMContentLoaded: enfocando el buscador');
       try { searchInput.focus(); } catch (e) {}
     }
   });
   window.addEventListener('load', () => {
     if (searchInput) {
-      console.log('load: enfocando el buscador (fallback)');
+      if (DEBUG) console.log('load: enfocando el buscador (fallback)');
       try { searchInput.focus(); } catch (e) {}
     }
   });
@@ -102,13 +103,13 @@ title: "Episodios"
   if (searchInput) {
     try { searchInput.focus(); } catch (e) {}
     searchInput.addEventListener('focus', () => {
-      console.log('Buscador: focus recibido');
+      if (DEBUG) console.log('Buscador: focus recibido');
     });
     searchInput.addEventListener('click', () => {
-      console.log('Buscador: clic sobre el campo');
+      if (DEBUG) console.log('Buscador: clic sobre el campo');
     });
   } else {
-    console.warn('Search input not found');
+    if (DEBUG) console.warn('Search input not found');
   }
 
   // Cargar datos de búsqueda
@@ -116,10 +117,10 @@ title: "Episodios"
     .then(response => response.json())
     .then(data => {
       searchData = data;
-      console.log('Buscador: índice cargado →', Array.isArray(data) ? data.length : 0, 'episodios');
+      if (DEBUG) console.log('Buscador: índice cargado →', Array.isArray(data) ? data.length : 0, 'episodios');
     })
     .catch(err => {
-      console.error('Buscador: error cargando índice', err);
+      if (DEBUG) console.error('Buscador: error cargando índice', err);
     });
 
   // Ocultar resultados sin limpiar el input
@@ -247,7 +248,7 @@ title: "Episodios"
   });
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
-      console.log('Buscador: valor actual ->', e.target.value);
+      if (DEBUG) console.log('Buscador: valor actual ->', e.target.value);
       search(e.target.value);
     });
   }

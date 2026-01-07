@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "Kusen extraído del libro Fluyendo en el Presente Eterno del maestro zen Dokushô Villalba. Grabación realizada en la práctica online de la CBSZ el 19/02/2021 [do_widget id=powerpress_subscribe-2]"
 audio_url: "/assets/mp3/2021/2021-02-20-Disolviendo-tensiones.mp3"
 audio_type: "audio/mpeg"
-audio_length: 17460534
+audio_length: 17479094
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2021/02/20/disolviendo-tensiones/"
 ---

@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "Kusen extraído del libro Fluyendo en el Presente Eterno de Dokushô Villalba . Grabación realizada en el Dojo Zen Kômyô de Alicante"
 audio_url: "/assets/mp3/2020/2020-12-29-Sonriendo-Fluyendo-en-el-Presente-Eterno.mp3"
 audio_type: "audio/mpeg"
-audio_length: 2242518
+audio_length: 2245860
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2020/12/29/sonriendo/"
 ---

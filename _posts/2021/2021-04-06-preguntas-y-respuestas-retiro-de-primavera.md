@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "En este audio encontrarás la sesión de preguntas y respuestas realizada durante el pasado retiro de introducción en el Templo Luz Serena ."
 audio_url: "/assets/mp3/2021/2021-04-06-2021-04-02_183222554editado.mp3"
 audio_type: "audio/mpeg"
-audio_length: 40083946
+audio_length: 40125104
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2021/04/06/preguntas-y-respuestas-retiro-de-primavera/"
 ---

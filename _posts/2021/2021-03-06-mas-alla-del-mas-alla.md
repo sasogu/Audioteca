@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "Kusen extraído del libro Fluyendo en el Presente Eterno del maestro zen Dokushô Villalba. Grabación realizada en la práctica online de la CBSZ el 05/03/2021"
 audio_url: "/assets/mp3/2021/2021-03-06-MasAllaDelMasAlla.mp3"
 audio_type: "audio/mpeg"
-audio_length: 16423807
+audio_length: 16441306
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2021/03/06/mas-alla-del-mas-alla/"
 ---

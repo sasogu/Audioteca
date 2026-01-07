@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "Kusen extraído del libro Vida Simple, Corazón Profundo del maestro zen Dokushô Villalba"
 audio_url: "/assets/mp3/2021/2021-07-19-ImposibleDeAferrar.mp3"
 audio_type: "audio/mpeg"
-audio_length: 11878477
+audio_length: 11891430
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2021/07/19/imposible-de-aferrar/"
 ---

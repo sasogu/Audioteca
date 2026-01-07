@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "Charla realizada en el dojo zen Kômyô de Alicante , más información sobre el ciclo completo en este enlace . [restrict level=»1&#8243;] [/restrict]"
 audio_url: "/assets/mp3/2022/2022-05-10-Teisho5.mp3"
 audio_type: "audio/mpeg"
-audio_length: 55606522
+audio_length: 55663176
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2022/05/10/quinta-sesion-del-ciclo-de-conferencias-sobre-la-via-del-bodhisattva/"
 ---

@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: " 不 識 玄 旨 徒 勞 念 靜 Si no comprendes el principio profundo, te esfuerzas en…"
 audio_url: "/assets/mp3/2024/2024-09-27-Al-no-comprender-el-sentido-profundo.mp3"
 audio_type: "audio/mpeg"
-audio_length: 5071622
+audio_length: 5077739
 duration: "4:47"
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2024/09/27/06-si-no-comprendes-el-principio-profundo/"

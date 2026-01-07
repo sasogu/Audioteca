@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "Kusen extraído del libro Vida Simple, Corazón Profundo del maestro zen Dokushô Villalba"
 audio_url: "/assets/mp3/2021/2021-07-10-ZazenEsUnActoDeEntrega.mp3"
 audio_type: "audio/mpeg"
-audio_length: 12333641
+audio_length: 12347049
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2021/07/10/zazen-es-un-acto-de-entrega/"
 ---

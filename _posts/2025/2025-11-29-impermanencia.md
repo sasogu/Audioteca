@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "El pasado 15 de noviembre celebramos en el dojo zen de Alicante un retiro urbano dentro del programa de práctica de la Comunidad Soto Zen Camino Medio. En ese contexto grabé un audio que recoge la enseñanza compartida aquella tarde, nacida …"
 audio_url: "/assets/mp3/2025/2025-11-29-impermanencia.mp3"
 audio_type: "audio/mpeg"
-audio_length: 5242880
+audio_length: 46185219
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2025/11/29/impermanencia/"
 ---

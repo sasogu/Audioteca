@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "Kusen extraído del libro Fluyendo en el Presente Eterno del maestro zen Dokushô Villalba. Grabación realizada en la práctica online de la CBSZ el 12/03/2021"
 audio_url: "/assets/mp3/2021/2021-03-12-TrascendiendoLaDualidad.mp3"
 audio_type: "audio/mpeg"
-audio_length: 14305153
+audio_length: 14320533
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2021/03/12/trascendiendo-la-dualidad/"
 ---

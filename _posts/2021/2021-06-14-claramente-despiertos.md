@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "Kusen extraído del libro Vida Simple, Corazón Profundo del maestro zen Dokushô Villalba"
 audio_url: "/assets/mp3/2021/2021-06-14-ClaramenteDespiertos.mp3"
 audio_type: "audio/mpeg"
-audio_length: 20501393
+audio_length: 20522969
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2021/06/14/claramente-despiertos/"
 ---

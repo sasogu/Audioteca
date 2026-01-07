@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "Kusen extraído del libro Fluyendo en el Presente Eterno del maestro zen Dokushô Villalba. Grabación realizada en el dojo zen Kômyô de Alicante el 26/03/2021 Cuándo nos sentamos en zazen, ¿quién se sienta en zazen? ¿quién hace qué? ¿qué sign…"
 audio_url: "/assets/mp3/2021/2021-03-27-QuienHaceZazenEditado.mp3"
 audio_type: "audio/mpeg"
-audio_length: 10423968
+audio_length: 10435467
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2021/03/27/quien-hace-zazen/"
 ---

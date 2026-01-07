@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "Charla realizada en la sede de la Asociación Zen de Murcia, más información sobre el ciclo completo en este enlace ."
 audio_url: "/assets/mp3/2022/2022-04-01-Murciateishocuatrovotosytretesoros.mp3"
 audio_type: "audio/mpeg"
-audio_length: 28047932
+audio_length: 28077025
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2022/04/01/tercera-sesion-del-ciclo-de-conferencias-sobre-la-via-del-bodhisattva/"
 ---

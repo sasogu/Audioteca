@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "Grabaciones de las cuatro sesiones de enseñanza realizadas durante el retiro de primavera en el templo Luz Serena. Ordenadas según fueron impartidas. Primera sesión. [restrict level=»1&#8243;] Segunda sesión, preguntas y respuestas. Tercera…"
 audio_url: "/assets/mp3/2022/2022-04-22-Teisho1.mp3"
 audio_type: "audio/mpeg"
-audio_length: 26229058
+audio_length: 26256334
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2022/04/22/grabaciones-de-las-ensenanzas-del-retiro-de-primavera-2022/"
 ---

@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "En nuestra vida cotidiana, la velocidad y las expectativas marcan el ritmo de nuestra vida. La conferencia «Un Corazón en Paz» es una invitación a redescubrir la calma que habita en lo profundo de cada uno de nosotros a través de la práctic…"
 audio_url: "/assets/mp3/2024/2024-12-16-Charla_Alquimia_Alcoi.mp3"
 audio_type: "audio/mpeg"
-audio_length: 28900979
+audio_length: 28930910
 duration: "1:30:28"
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2024/12/16/un-corazon-en-paz-el-camino-del-budismo-soto-zen-para-vivir-con-serenidad/"

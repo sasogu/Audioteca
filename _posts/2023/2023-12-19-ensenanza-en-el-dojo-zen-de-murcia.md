@@ -5,7 +5,7 @@ categories: ["podcast"]
 description: "La pasada semana tuvimos una jornada de práctica en el dojo de Murcia y grabé la enseñanza que impartí, lamentablemente el micrófono no grabó bien el interesante coloquio que tuvimos a continuación, pero al menos podéis escuchar la parte in…"
 audio_url: "/assets/mp3/2023/2023-12-19-26-nov-11.mp3"
 audio_type: "audio/mpeg"
-audio_length: 15035328
+audio_length: 15051531
 duration: "32:27"
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2023/12/19/ensenanza-en-el-dojo-zen-de-murcia/"

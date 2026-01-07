@@ -12,6 +12,7 @@
         --color-text-light: #666;
         --color-border: #e5e5e5;
         --color-bg-subtle: #f8f9fa;
+        --color-bg: #ffffff;
         --color-accent: #2d5a7b;
         --max-width: 840px;
         --spacing: clamp(1rem, 3vw, 1.5rem);
@@ -125,6 +126,9 @@
         background: var(--color-bg);
         color: var(--color-text);
         transition: border-color 0.2s, box-shadow 0.2s;
+        position: relative;
+        z-index: 1;
+        pointer-events: auto;
       }
 
       #search-input:focus {
@@ -148,6 +152,7 @@
         border: none;
         color: var(--color-text-light);
         cursor: pointer;
+        z-index: 2;
         border-radius: 4px;
         font-size: 1.25rem;
         line-height: 1;

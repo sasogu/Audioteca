@@ -7,7 +7,8 @@ audio_url: "/assets/mp3/2022/2022-05-10-Teisho5.mp3"
 audio_type: "audio/mpeg"
 audio_length: 55606522
 explicit: false
-source_url: "https://www.daizansoriano.com/quinta-sesion-del-ciclo-de-conferencias-sobre-la-via-del-bodhisattva/"---
+source_url: "https://www.daizansoriano.com/quinta-sesion-del-ciclo-de-conferencias-sobre-la-via-del-bodhisattva/"
+---
 
 ## Notas
 

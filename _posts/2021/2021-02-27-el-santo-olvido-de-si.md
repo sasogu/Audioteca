@@ -7,7 +7,8 @@ audio_url: "/assets/mp3/2021/2021-02-27-El-olvido-de-si.mp3"
 audio_type: "audio/mpeg"
 audio_length: 17542881
 explicit: false
-source_url: "https://www.daizansoriano.com/el-santo-olvido-de-si/"---
+source_url: "https://www.daizansoriano.com/el-santo-olvido-de-si/"
+---
 
 ## Notas
 

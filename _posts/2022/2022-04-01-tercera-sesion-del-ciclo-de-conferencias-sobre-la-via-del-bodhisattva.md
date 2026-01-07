@@ -7,7 +7,8 @@ audio_url: "/assets/mp3/2022/2022-04-01-Murciateishocuatrovotosytretesoros.mp3"
 audio_type: "audio/mpeg"
 audio_length: 28047932
 explicit: false
-source_url: "https://www.daizansoriano.com/tercera-sesion-del-ciclo-de-conferencias-sobre-la-via-del-bodhisattva/"---
+source_url: "https://www.daizansoriano.com/tercera-sesion-del-ciclo-de-conferencias-sobre-la-via-del-bodhisattva/"
+---
 
 ## Notas
 

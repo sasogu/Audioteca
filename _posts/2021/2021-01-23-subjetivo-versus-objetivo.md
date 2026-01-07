@@ -7,7 +7,8 @@ audio_url: "/assets/mp3/2021/2021-01-23-Subjetivo-Vs-objetivo-Fluyendo-en-el-ete
 audio_type: "audio/mpeg"
 audio_length: 5938947
 explicit: false
-source_url: "https://www.daizansoriano.com/subjetivo-versus-objetivo/"---
+source_url: "https://www.daizansoriano.com/subjetivo-versus-objetivo/"
+---
 
 ## Notas
 

@@ -7,7 +7,8 @@ audio_url: "/assets/mp3/2021/2021-03-27-QuienHaceZazenEditado.mp3"
 audio_type: "audio/mpeg"
 audio_length: 10423968
 explicit: false
-source_url: "https://www.daizansoriano.com/quien-hace-zazen/"---
+source_url: "https://www.daizansoriano.com/quien-hace-zazen/"
+---
 
 ## Notas
 

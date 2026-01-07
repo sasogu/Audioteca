@@ -7,7 +7,8 @@ audio_url: "/assets/mp3/2021/2021-04-10-LaViaEsAmpliaYGenerosa.mp3"
 audio_type: "audio/mpeg"
 audio_length: 15880890
 explicit: false
-source_url: "https://www.daizansoriano.com/la-via-es-amplia-y-generosa/"---
+source_url: "https://www.daizansoriano.com/la-via-es-amplia-y-generosa/"
+---
 
 ## Notas
 

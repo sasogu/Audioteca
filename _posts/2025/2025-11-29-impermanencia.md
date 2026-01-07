@@ -7,7 +7,8 @@ audio_url: "/assets/mp3/2025/2025-11-29-impermanencia.mp3"
 audio_type: "audio/mpeg"
 audio_length: 46137936
 explicit: false
-source_url: "https://www.daizansoriano.com/impermanencia/"---
+source_url: "https://www.daizansoriano.com/impermanencia/"
+---
 
 ## Notas
 

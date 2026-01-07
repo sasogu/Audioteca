@@ -7,7 +7,8 @@ audio_url: "/assets/mp3/2021/2021-05-09-preguntasyrespuestasretirodeacercamiento
 audio_type: "audio/mpeg"
 audio_length: 39829093
 explicit: false
-source_url: "https://www.daizansoriano.com/preguntas-y-respuestas-retiro-de-acercamiento-mayo-2021/"---
+source_url: "https://www.daizansoriano.com/preguntas-y-respuestas-retiro-de-acercamiento-mayo-2021/"
+---
 
 ## Notas
 

@@ -8,7 +8,8 @@ audio_type: "audio/mpeg"
 audio_length: 5929041
 duration: "9:56"
 explicit: false
-source_url: "https://www.daizansoriano.com/traduccion-del-xin-xin-ming-tratado-sobre-la-confianza-en-la-mente-original/"---
+source_url: "https://www.daizansoriano.com/traduccion-del-xin-xin-ming-tratado-sobre-la-confianza-en-la-mente-original/"
+---
 
 ## Notas
 

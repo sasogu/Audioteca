@@ -8,7 +8,8 @@ audio_type: "audio/mpeg"
 audio_length: 8320800
 duration: "12:06:00"
 explicit: false
-source_url: "https://www.daizansoriano.com/meditacion-guiada/"---
+source_url: "https://www.daizansoriano.com/meditacion-guiada/"
+---
 
 ## Notas
 

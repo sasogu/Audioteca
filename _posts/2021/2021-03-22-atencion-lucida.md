@@ -7,7 +7,8 @@ audio_url: "/assets/mp3/2021/2021-03-22-AtencionLucida.mp3"
 audio_type: "audio/mpeg"
 audio_length: 17936730
 explicit: false
-source_url: "https://www.daizansoriano.com/atencion-lucida/"---
+source_url: "https://www.daizansoriano.com/atencion-lucida/"
+---
 
 ## Notas
 

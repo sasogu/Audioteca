@@ -7,7 +7,8 @@ audio_url: "/assets/mp3/2022/2022-03-04-Teisho2.mp3"
 audio_type: "audio/mpeg"
 audio_length: 50538994
 explicit: false
-source_url: "https://www.daizansoriano.com/segunda-sesion-del-ciclo-de-conferencias-sobre-la-via-del-bodhisattva/"---
+source_url: "https://www.daizansoriano.com/segunda-sesion-del-ciclo-de-conferencias-sobre-la-via-del-bodhisattva/"
+---
 
 ## Notas
 

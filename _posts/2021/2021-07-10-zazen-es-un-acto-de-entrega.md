@@ -7,7 +7,8 @@ audio_url: "/assets/mp3/2021/2021-07-10-ZazenEsUnActoDeEntrega.mp3"
 audio_type: "audio/mpeg"
 audio_length: 12333641
 explicit: false
-source_url: "https://www.daizansoriano.com/zazen-es-un-acto-de-entrega/"---
+source_url: "https://www.daizansoriano.com/zazen-es-un-acto-de-entrega/"
+---
 
 ## Notas
 

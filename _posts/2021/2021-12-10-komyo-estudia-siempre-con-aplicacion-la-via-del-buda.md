@@ -7,7 +7,8 @@ audio_url: "/assets/mp3/2021/Komyo-Estudia-siempre-con-aplicacion-la-Via-del-Bud
 audio_type: "audio/mpeg"
 audio_length: 7405407
 explicit: false
-source_url: "https://www.daizansoriano.com/komyo-estudia-siempre-con-aplicacion-la-via-del-buda/"---
+source_url: "https://www.daizansoriano.com/komyo-estudia-siempre-con-aplicacion-la-via-del-buda/"
+---
 
 ## Notas
 

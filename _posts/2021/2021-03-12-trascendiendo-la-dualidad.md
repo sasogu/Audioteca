@@ -7,7 +7,8 @@ audio_url: "/assets/mp3/2021/2021-03-12-TrascendiendoLaDualidad.mp3"
 audio_type: "audio/mpeg"
 audio_length: 14305153
 explicit: false
-source_url: "https://www.daizansoriano.com/trascendiendo-la-dualidad/"---
+source_url: "https://www.daizansoriano.com/trascendiendo-la-dualidad/"
+---
 
 ## Notas
 

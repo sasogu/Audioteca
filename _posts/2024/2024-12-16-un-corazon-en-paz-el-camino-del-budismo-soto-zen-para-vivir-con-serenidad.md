@@ -8,7 +8,8 @@ audio_type: "audio/mpeg"
 audio_length: 28900979
 duration: "1:30:28"
 explicit: false
-source_url: "https://www.daizansoriano.com/conferencia-un-corazon-en-paz-el-camino-del-budismo-soto-zen-para-vivir-con-serenidad/"---
+source_url: "https://www.daizansoriano.com/conferencia-un-corazon-en-paz-el-camino-del-budismo-soto-zen-para-vivir-con-serenidad/"
+---
 
 ## Notas
 

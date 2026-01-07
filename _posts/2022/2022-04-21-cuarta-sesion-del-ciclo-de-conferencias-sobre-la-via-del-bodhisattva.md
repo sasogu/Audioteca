@@ -7,7 +7,8 @@ audio_url: "/assets/mp3/2022/2022-04-21-Teisho4.mp3"
 audio_type: "audio/mpeg"
 audio_length: 60224665
 explicit: false
-source_url: "https://www.daizansoriano.com/cuarta-sesion-del-ciclo-de-conferencias-sobre-la-via-del-bodhisattva/"---
+source_url: "https://www.daizansoriano.com/cuarta-sesion-del-ciclo-de-conferencias-sobre-la-via-del-bodhisattva/"
+---
 
 ## Notas
 

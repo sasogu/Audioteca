@@ -7,7 +7,8 @@ audio_url: "/assets/mp3/2022/2022-02-15-Teisho1.mp3"
 audio_type: "audio/mpeg"
 audio_length: 40203414
 explicit: false
-source_url: "https://www.daizansoriano.com/primera-sesion-del-ciclo-de-conferencias-sobre-la-via-del-bodhisattva/"---
+source_url: "https://www.daizansoriano.com/primera-sesion-del-ciclo-de-conferencias-sobre-la-via-del-bodhisattva/"
+---
 
 ## Notas
 

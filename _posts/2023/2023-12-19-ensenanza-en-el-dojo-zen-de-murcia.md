@@ -8,7 +8,8 @@ audio_type: "audio/mpeg"
 audio_length: 15035328
 duration: "32:27"
 explicit: false
-source_url: "https://www.daizansoriano.com/ensenanza-en-el-dojo-zen-de-murcia/"---
+source_url: "https://www.daizansoriano.com/ensenanza-en-el-dojo-zen-de-murcia/"
+---
 
 ## Notas
 

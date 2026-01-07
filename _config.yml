@@ -28,6 +28,9 @@ license:
   name: "Creative Commons Atribución-SinDerivadas 4.0 Internacional"
   url: "https://creativecommons.org/licenses/by-nd/4.0/deed.es"
 
+# Versión del sitio
+version: "1.0"
+
 # Configuración del podcast (para feed.xml)
 # Rellena estos campos para que Apple Podcasts/Spotify lo lean mejor.
 podcast:

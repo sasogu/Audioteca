@@ -7,7 +7,8 @@ audio_url: "/assets/mp3/2022/2022-12-11-01ElCuerpoReal.mp3"
 audio_type: "audio/mpeg"
 audio_length: 1073016
 explicit: false
-source_url: "https://www.daizansoriano.com/el-cuerpo-real-1/"---
+source_url: "https://www.daizansoriano.com/el-cuerpo-real-1/"
+---
 
 ## Notas
 

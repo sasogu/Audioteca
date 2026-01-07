@@ -7,7 +7,8 @@ audio_url: "/assets/mp3/2023/2023-01-08-Primerasesionretiroinvierno2022.mp3"
 audio_type: "audio/mpeg"
 audio_length: 19623393
 explicit: false
-source_url: "https://www.daizansoriano.com/grabaciones-de-las-ensenanzas-del-retiro-de-invierno-2022/"---
+source_url: "https://www.daizansoriano.com/grabaciones-de-las-ensenanzas-del-retiro-de-invierno-2022/"
+---
 
 ## Notas
 

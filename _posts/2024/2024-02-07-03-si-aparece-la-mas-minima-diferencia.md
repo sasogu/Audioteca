@@ -3,9 +3,9 @@ title: "03. Si aparece la más mínima diferencia"
 date: 2024-02-07 10:33:36 +0000
 categories: ["podcast"]
 description: " 毫 釐 有 差 天 地 懸 隔 Si aparece la más mínima diferencia, cielo y tierra que…"
-audio_url: "https://media.blubrry.com/daizansoriano/www.daizansoriano.com/wp-content/uploads/2024/03/3.-Pero-si-se-crea-la-menor-diferencia2.mp3"
+audio_url: "/assets/mp3/2024/3.-Pero-si-se-crea-la-menor-diferencia.mp3"
 audio_type: "audio/mpeg"
-audio_length: 5242880
+audio_length: 3084197
 explicit: false
 source_url: "https://sasogu.github.io/Audioteca/episodios/2024/02/07/03-si-aparece-la-mas-minima-diferencia/"
 ---

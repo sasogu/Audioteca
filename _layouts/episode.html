@@ -11,7 +11,7 @@ layout: default
   </div>
 
   {% if page.audio_url %}
-    <audio controls preload="none" src="{{ page.audio_url | relative_url }}"></audio>
+    <audio controls preload="none" src="{% if page.audio_url contains '://' %}{{ page.audio_url }}{% else %}{{ page.audio_url | relative_url }}{% endif %}"></audio>
     <div class="meta">
       {% if page.duration %}Duración: {{ page.duration }}{% endif %}
     </div>

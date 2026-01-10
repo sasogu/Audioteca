@@ -41,7 +41,7 @@ def main():
     posts_dir = repo_root / '_posts'
     
     # URL base del sitio
-    base_url = "https://sasogu.github.io/Audioteca"
+    base_url = "https://cszcm.github.io/Audioteca"
     
     updated = 0
     

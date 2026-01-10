@@ -8,11 +8,10 @@ audio_type: "audio/mpeg"
 audio_length: 23950802
 duration: "44:57"
 explicit: false
-source_url: "https://sasogu.github.io/Audioteca/episodios/2025/03/22/continuacion-los-cinco-obstaculos-el-rechazo/"
+source_url: "https://cszcm.github.io/Audioteca/episodios/2025/03/22/continuacion-los-cinco-obstaculos-el-rechazo/"
 image: "/assets/images/2025/2025-03-22-continuacion-los-cinco-obstaculos-el-rechazo.jpg"
 ---
 
 ## Notas
 
-<p>Sesión de enseñanza realizada en el dojo zen de Elche en el contexto del <a href="https://www.caminomedio.org/curso/introduccion-a-la-meditacion-zen/">Curso de Introducción a la Meditación Zen II </a>el 14 de marzo de 2025.</p> 
-
+<p>Sesión de enseñanza realizada en el dojo zen de Elche en el contexto del <a href="https://www.caminomedio.org/curso/introduccion-a-la-meditacion-zen/">Curso de Introducción a la Meditación Zen II </a>el 14 de marzo de 2025.</p>

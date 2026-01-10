@@ -6,6 +6,7 @@ description: "El pasado 15 de noviembre celebramos en el dojo zen de Alicante un
 audio_url: "/assets/mp3/2025/2025-11-29-impermanencia.mp3"
 audio_type: "audio/mpeg"
 audio_length: 46185219
+duration: "1:01:42"
 explicit: false
 source_url: "https://cszcm.github.io/Audioteca/episodios/2025/11/29/impermanencia/"
 ---

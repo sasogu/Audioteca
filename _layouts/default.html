@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description | escape }}" />
+    <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="https://feeds.feedburner.com/daizansoriano/podcast" />
     <style>
       :root {
@@ -466,5 +467,274 @@
       </div>
       <div>© {{ "now" | date: "%Y" }} Daizan Soriano · v{{ site.version }}</div>
     </footer>
+
+    <script>
+      (function () {
+        const STORAGE_PREFIX = 'audioteca:audio-progress:';
+        const SAVE_EVERY_MS = 5000;
+        const CLEAR_IF_WITHIN_END_SECONDS = 10;
+        const MIN_RESTORE_SECONDS = 3;
+
+        function formatTime(totalSeconds) {
+          if (!Number.isFinite(totalSeconds) || totalSeconds < 0) return '';
+          const s = Math.floor(totalSeconds);
+          const hours = Math.floor(s / 3600);
+          const minutes = Math.floor((s % 3600) / 60);
+          const seconds = s % 60;
+          const pad2 = (n) => String(n).padStart(2, '0');
+          return hours > 0 ? `${hours}:${pad2(minutes)}:${pad2(seconds)}` : `${minutes}:${pad2(seconds)}`;
+        }
+
+        function safeJsonParse(value) {
+          try {
+            return JSON.parse(value);
+          } catch (_) {
+            return null;
+          }
+        }
+
+        function safeGet(key) {
+          try {
+            return localStorage.getItem(key);
+          } catch (_) {
+            return null;
+          }
+        }
+
+        function safeSet(key, value) {
+          try {
+            localStorage.setItem(key, value);
+          } catch (_) {
+            // Ignorar (modo privado, cuota llena, etc.)
+          }
+        }
+
+        function safeRemove(key) {
+          try {
+            localStorage.removeItem(key);
+          } catch (_) {
+            // Ignorar
+          }
+        }
+
+        function getAudioKey(audio) {
+          const src = audio.currentSrc || audio.src;
+          if (!src) return null;
+          let normalized;
+          try {
+            normalized = new URL(src, window.location.href).href;
+          } catch (_) {
+            normalized = src;
+          }
+          return STORAGE_PREFIX + normalized;
+        }
+
+        function shouldClearProgress(currentTime, duration) {
+          if (!Number.isFinite(currentTime) || currentTime <= 0) return true;
+          if (!Number.isFinite(duration) || duration <= 0) return false;
+          return currentTime >= Math.max(0, duration - CLEAR_IF_WITHIN_END_SECONDS);
+        }
+
+        function attach(audio) {
+          const key = getAudioKey(audio);
+          if (!key) return;
+
+          let lastSavedAt = 0;
+          let restored = false;
+          let promptEl = null;
+          let pendingSeek = null;
+
+          function saveProgress(force) {
+            const now = Date.now();
+            if (!force && now - lastSavedAt < SAVE_EVERY_MS) return;
+            lastSavedAt = now;
+
+            const t = audio.currentTime;
+            const d = audio.duration;
+            if (shouldClearProgress(t, d)) {
+              safeRemove(key);
+              return;
+            }
+
+            safeSet(
+              key,
+              JSON.stringify({
+                t: t,
+                d: Number.isFinite(d) ? d : null,
+                updatedAt: now,
+                page: window.location.pathname
+              })
+            );
+          }
+
+          function removePrompt() {
+            if (promptEl && promptEl.parentNode) promptEl.parentNode.removeChild(promptEl);
+            promptEl = null;
+          }
+
+          function showResumePrompt(seconds) {
+            if (promptEl) return;
+            const timeLabel = formatTime(seconds);
+            if (!timeLabel) return;
+
+            const wrapper = document.createElement('div');
+            wrapper.className = 'audio-resume';
+            wrapper.style.marginTop = '0.5rem';
+            wrapper.style.padding = '0.75rem';
+            wrapper.style.border = '1px solid var(--color-border)';
+            wrapper.style.borderRadius = '8px';
+            wrapper.style.background = 'var(--color-bg-subtle)';
+            wrapper.style.color = 'var(--color-text)';
+            wrapper.style.display = 'flex';
+            wrapper.style.flexWrap = 'wrap';
+            wrapper.style.alignItems = 'center';
+            wrapper.style.gap = '0.75rem';
+
+            const text = document.createElement('div');
+            text.style.flex = '1 1 auto';
+            text.innerHTML = `Has escuchado hasta <strong>${timeLabel}</strong>. ¿Continuar?`;
+
+            const actions = document.createElement('div');
+            actions.style.display = 'inline-flex';
+            actions.style.gap = '0.5rem';
+            actions.style.flex = '0 0 auto';
+
+            const btnContinue = document.createElement('button');
+            btnContinue.type = 'button';
+            btnContinue.textContent = 'Continuar';
+            btnContinue.style.padding = '0.45rem 0.75rem';
+            btnContinue.style.borderRadius = '6px';
+            btnContinue.style.border = '1px solid var(--color-border)';
+            btnContinue.style.background = 'var(--color-bg)';
+            btnContinue.style.cursor = 'pointer';
+
+            const btnRestart = document.createElement('button');
+            btnRestart.type = 'button';
+            btnRestart.textContent = 'Empezar desde cero';
+            btnRestart.style.padding = '0.45rem 0.75rem';
+            btnRestart.style.borderRadius = '6px';
+            btnRestart.style.border = '1px solid var(--color-border)';
+            btnRestart.style.background = 'var(--color-bg)';
+            btnRestart.style.cursor = 'pointer';
+
+            btnContinue.addEventListener('click', () => {
+              restored = true;
+              removePrompt();
+              // Con preload="none", puede que aún no haya metadata; diferimos el seek.
+              if (audio.readyState >= 1) {
+                try {
+                  audio.currentTime = seconds;
+                } catch (_) {}
+              } else {
+                pendingSeek = seconds;
+              }
+              // Intentar reproducir: el click cuenta como gesto del usuario.
+              const p = audio.play();
+              if (p && typeof p.catch === 'function') p.catch(() => {});
+            });
+
+            btnRestart.addEventListener('click', () => {
+              safeRemove(key);
+              restored = true;
+              removePrompt();
+              try {
+                audio.currentTime = 0;
+              } catch (_) {}
+            });
+
+            actions.appendChild(btnContinue);
+            actions.appendChild(btnRestart);
+            wrapper.appendChild(text);
+            wrapper.appendChild(actions);
+
+            audio.insertAdjacentElement('afterend', wrapper);
+            promptEl = wrapper;
+          }
+
+          function restoreProgressWithPrompt() {
+            if (restored) return;
+            const raw = safeGet(key);
+            if (!raw) return;
+            const data = safeJsonParse(raw);
+            if (!data || !Number.isFinite(data.t)) return;
+
+            const t = data.t;
+            if (t < MIN_RESTORE_SECONDS) return;
+
+            showResumePrompt(t);
+          }
+
+          // Mostrar el prompt al cargar, incluso con preload="none".
+          restoreProgressWithPrompt();
+
+          audio.addEventListener(
+            'loadedmetadata',
+            () => {
+              // Si ya estamos prácticamente al final, limpiar progreso.
+              const raw = safeGet(key);
+              const data = raw ? safeJsonParse(raw) : null;
+              if (data && Number.isFinite(data.t)) {
+                const d = audio.duration;
+                if (Number.isFinite(d) && d > 0 && data.t >= Math.max(0, d - CLEAR_IF_WITHIN_END_SECONDS)) {
+                  safeRemove(key);
+                }
+              }
+
+              if (pendingSeek != null) {
+                const seconds = pendingSeek;
+                pendingSeek = null;
+                try {
+                  audio.currentTime = seconds;
+                } catch (_) {}
+              }
+            },
+            { passive: true }
+          );
+
+          audio.addEventListener('timeupdate', () => saveProgress(false), { passive: true });
+          audio.addEventListener('pause', () => saveProgress(true), { passive: true });
+          audio.addEventListener(
+            'play',
+            () => {
+              if (promptEl) {
+                restored = true;
+                removePrompt();
+              }
+            },
+            { passive: true }
+          );
+
+          audio.addEventListener(
+            'ended',
+            () => {
+              removePrompt();
+              safeRemove(key);
+            },
+            { passive: true }
+          );
+
+          document.addEventListener(
+            'visibilitychange',
+            () => {
+              if (document.visibilityState === 'hidden') saveProgress(true);
+            },
+            { passive: true }
+          );
+
+          window.addEventListener(
+            'pagehide',
+            () => {
+              saveProgress(true);
+            },
+            { passive: true }
+          );
+          window.addEventListener('beforeunload', () => saveProgress(true));
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+          document.querySelectorAll('audio').forEach(attach);
+        });
+      })();
+    </script>
   </body>
 </html>

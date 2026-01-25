@@ -144,7 +144,7 @@ permalink: /lista-correo/
         <div class="clear">&nbsp;</div>
       </div>
       <input name="campaign_id" id="campaign_id" type="hidden" value="00000707-e538-14d1-d6d7-6975ddfb7dd1" />
-      <input name="redirect_url" id="redirect_url" type="hidden" value="https://daizansoriano.com" />
+      <input name="redirect_url" id="redirect_url" type="hidden" value="https://www.daizansoriano.com" />
       <input name="assigned_user_id" id="assigned_user_id" type="hidden" value="00000f0b-aea0-cbf0-db07-682dc6e0639d" />
       <input name="moduleDir" id="moduleDir" type="hidden" value="Leads" />
     </form>
